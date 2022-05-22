@@ -33,10 +33,11 @@ export const Label = styled.label`
 export const ShowPasswordContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 `
 export const ShowPassword = styled.input`
   font-size: 14px;
+  margin-bottom: 10px;
 `
 export const Input = styled.input`
   margin-bottom: 10px;
@@ -47,12 +48,20 @@ export const Input = styled.input`
   color: #606060;
 `
 export const LoginButton = styled.button`
-  color: #ffffff;
-  background-color: #3b82f6;
   border-radius: 5px;
   border: none;
   padding: 10px;
   cursor: pointer;
+
+  margin-top: 10px;
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+  background-color: transparent;
+  font-weight: bold;
+  :hover {
+    color: #ffffff;
+    background-color: #3b82f6;
+  }
 `
 export const ErrorMessage = styled.p`
   color: #ff0b37;

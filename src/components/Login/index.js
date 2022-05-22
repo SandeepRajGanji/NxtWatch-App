@@ -118,10 +118,13 @@ export default class Login extends Component {
               value="Show Password"
               onClick={this.showPassword}
             />
-            <label htmlFor="showPassword">Show Password</label>
+            <Label theme="true" htmlFor="showPassword">
+              Show Password
+            </Label>
           </ShowPasswordContainer>
-
+          <Label theme="true">Username:rahul Password:rahul@2021</Label>
           <LoginButton type="submit"> Login</LoginButton>
+
           {showError ? <ErrorMessage>*{showErrorMsg}</ErrorMessage> : ''}
         </LoginCardForm>
       </LoginAppContainer>
