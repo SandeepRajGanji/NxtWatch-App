@@ -52,7 +52,7 @@ export const LoaderContainer = styled.div`
   min-height: 70vh;
   width: 100%;
 `
-export const VideoTitle = styled.h1`
+export const VideoTitle = styled.p`
   font-size: 16px;
   margin-bottom: 0px;
   font-weight: bold;
@@ -96,7 +96,6 @@ export const LikeButtonContainer = styled.button`
   border: none;
   cursor: pointer;
   background-color: transparent;
-  color: ${props => (props.liked === true ? '#4f46e5' : '#64748b')};
 `
 export const DisLikeButtonContainer = styled.button`
   display: flex;
@@ -106,7 +105,6 @@ export const DisLikeButtonContainer = styled.button`
   border: none;
   cursor: pointer;
   background-color: transparent;
-  color: ${props => (props.disliked === true ? '#4f46e5' : '#64748b')};
 `
 export const SavedButtonContainer = styled.button`
   display: flex;
@@ -122,6 +120,7 @@ export const SavedButtonContainer = styled.button`
 export const ButtonText = styled.p`
   border: none;
   font-weight: 500;
+  color: ${props => props.color};
 `
 
 export const ChannelContainer = styled.div`

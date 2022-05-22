@@ -200,7 +200,7 @@ const Header = props => (
                 <PopupBgContainer>
                   <PopupContainer color={popUpBg}>
                     <Text color={textColor}>
-                      Are you sure you want to logout?
+                      Are you sure, you want to logout?
                     </Text>
                     <ControllerContainer>
                       <CancelButton onClick={() => close()}>
@@ -226,7 +226,7 @@ const Header = props => (
                 <PopupBgContainer>
                   <PopupContainer color={popUpBg}>
                     <Text color={textColor}>
-                      Are you sure you want to logout?
+                      Are you sure, you want to logout?
                     </Text>
                     <ControllerContainer>
                       <CancelButton onClick={() => close()}>

@@ -84,7 +84,7 @@ export default class SavedVideos extends Component {
             <AppSavedVideosContainer bgColor={appBgColor}>
               <Header />
               <SavedVideosContainer
-                data-testid="saved-videos"
+                data-testid="savedVideos"
                 bgColor={backgroundColor}
               >
                 <LeftSection bgColor={backgroundColor}>

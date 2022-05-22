@@ -49,10 +49,10 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    this.getJobItemData()
+    this.getHomeVideosData()
   }
 
-  getJobItemData = async () => {
+  getHomeVideosData = async () => {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
@@ -103,7 +103,7 @@ export default class Home extends Component {
 
   onEnterSearchInput = event => {
     if (event.key === 'Enter') {
-      this.getJobItemData()
+      this.getHomeVideosData()
     }
   }
 
@@ -119,6 +119,15 @@ export default class Home extends Component {
     )
   }
 
+  onRetry = () => {
+    this.setState(
+      {
+        search: '',
+      },
+      this.getHomeVideosData,
+    )
+  }
+
   renderVideosFailureView = () => <FailureView onRetry={this.onRetry} />
 
   renderLoader = () => (
@@ -126,15 +135,6 @@ export default class Home extends Component {
       <Loader type="ThreeDots" color="#0b69ff" height={80} width={80} />
     </LoaderContainer>
   )
-
-  onRetry = () => {
-    this.setState(
-      {
-        search: '',
-      },
-      this.getJobItemData,
-    )
-  }
 
   renderNoVideosView = () => (
     <NxtWatchContext>
@@ -188,7 +188,7 @@ export default class Home extends Component {
         {value => {
           const {isDarkTheme} = value
 
-          const backgroundColor = isDarkTheme ? '#0f0f0f ' : '#f9f9f9'
+          const backgroundColor = isDarkTheme ? '#181818' : '#f9f9f9'
           const appBgColor = isDarkTheme ? '#000000' : '#ffffff'
           return (
             <AppHomeContainer bgColor={appBgColor}>
@@ -227,7 +227,7 @@ export default class Home extends Component {
                       <SearchButton
                         type="button"
                         data-testid="searchButton"
-                        onClick={this.getJobItemData}
+                        onClick={this.getHomeVideosData}
                       >
                         <BsSearch className="search-icon" />
                       </SearchButton>

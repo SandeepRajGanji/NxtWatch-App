@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 import {
   LoginAppContainer,
   LoginCardForm,
@@ -60,32 +61,38 @@ export default class Login extends Component {
   validateCredentials = async event => {
     event.preventDefault()
     const {username, password} = this.state
-    if (username !== '' && password !== '') {
-      const apiUrl = 'https://apis.ccbp.in/login'
-      const data = {
-        username,
-        password,
-      }
-      const options = {
-        method: 'POST',
-        body: JSON.stringify(data),
-      }
-      const response = await fetch(apiUrl, options)
-      const responseJson = await response.json()
-      if (response.ok === true) {
-        this.successResponse(responseJson.jwt_token)
-      } else {
-        this.failureResponse(responseJson.error_msg)
-      }
+
+    const apiUrl = 'https://apis.ccbp.in/login'
+    const data = {
+      username,
+      password,
+    }
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }
+    const response = await fetch(apiUrl, options)
+    const responseJson = await response.json()
+    if (response.ok === true) {
+      this.successResponse(responseJson.jwt_token)
+    } else {
+      this.failureResponse(responseJson.error_msg)
     }
   }
 
   render() {
     const {showErrorMsg, showError} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <LoginAppContainer>
         <LoginCardForm onSubmit={this.validateCredentials}>
-          <Logo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png" />
+          <Logo
+            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+            alt="website logo"
+          />
           <Label htmlFor="username" theme="true">
             USERNAME
           </Label>

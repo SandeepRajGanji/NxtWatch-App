@@ -46,6 +46,7 @@ const Navigation = () => (
             <NavItemsContainer>
               <NavLink to="/">
                 <NavItem
+                  key="home"
                   onClick={changeTabHome}
                   bgColor={activeTab === 'Home' ? activeTabBg : 'none'}
                 >
@@ -63,6 +64,7 @@ const Navigation = () => (
               </NavLink>
               <NavLink to="/trending">
                 <NavItem
+                  key="trending"
                   onClick={changeTabTrending}
                   bgColor={activeTab === 'Trending' ? activeTabBg : 'none'}
                 >
@@ -78,8 +80,10 @@ const Navigation = () => (
                   </NavName>
                 </NavItem>
               </NavLink>
+
               <NavLink to="/gaming">
                 <NavItem
+                  key="gaming"
                   onClick={changeTabGaming}
                   bgColor={activeTab === 'Gaming' ? activeTabBg : 'none'}
                 >
@@ -95,8 +99,10 @@ const Navigation = () => (
                   </NavName>
                 </NavItem>
               </NavLink>
+
               <NavLink to="/saved-videos">
                 <NavItem
+                  key="saved"
                   onClick={changeTabSavedVideos}
                   bgColor={activeTab === 'Saved' ? activeTabBg : 'none'}
                 >

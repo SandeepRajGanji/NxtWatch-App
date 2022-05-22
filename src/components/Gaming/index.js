@@ -99,7 +99,7 @@ export default class Gaming extends Component {
     </NxtWatchContext>
   )
 
-  renderGamingFailureView = () => <FailureView onRetry={this.getTrendingData} />
+  renderGamingFailureView = () => <FailureView onRetry={this.getGamingData} />
 
   renderLoader = () => (
     <LoaderContainer data-testid="loader" className="loader">
@@ -133,7 +133,7 @@ export default class Gaming extends Component {
           return (
             <AppGamingContainer bgColor={appBgColor}>
               <Header />
-              <GamingContainer data-testid="Gaming" bgColor={backgroundColor}>
+              <GamingContainer data-testid="gaming" bgColor={backgroundColor}>
                 <LeftSection bgColor={backgroundColor}>
                   <Navigation />
                 </LeftSection>

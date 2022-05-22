@@ -31,4 +31,5 @@ export const RetryButton = styled.button`
   border: none;
   border-radius: 5px;
   width: 100px;
+  margin-bottom: 20px;
 `

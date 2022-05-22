@@ -80,7 +80,7 @@ export default class VideoItemDetails extends Component {
         viewsCount: data.video_details.view_count,
         videoUrl: data.video_details.video_url,
       }
-      console.log(updatedData)
+      // console.log(updatedData)
       this.setState({
         videoItemDetails: updatedData,
         apiStatus: apiStatusConstants.success,
@@ -113,21 +113,22 @@ export default class VideoItemDetails extends Component {
   renderVideoItemSuccessView = () => {
     const {isLiked, isDisLiked} = this.state
     const {videoItemDetails} = this.state
-    const {
-      channelName,
-      description,
-      channelProfileLogo,
-      publishedDate,
-      title,
-      viewsCount,
-      videoUrl,
-      channelSubscriberCount,
-    } = videoItemDetails
+
     return (
       <NxtWatchContext>
         {value => {
           const {isDarkTheme, addVideo, savedVideos} = value
           const themeColor = isDarkTheme ? '#ffffff' : '#000000'
+          const {
+            channelName,
+            description,
+            channelProfileLogo,
+            publishedDate,
+            title,
+            viewsCount,
+            videoUrl,
+            channelSubscriberCount,
+          } = videoItemDetails
           let isSaved
 
           const videoIndex = savedVideos.findIndex(
@@ -143,9 +144,13 @@ export default class VideoItemDetails extends Component {
           const saveVideo = () => {
             addVideo(videoItemDetails)
           }
+
+          const likeColor = isLiked ? '#2563eb' : '#64748b'
+          const disLikeColor = isDisLiked ? '#2563eb' : '#64748b'
+
           return (
             <>
-              <ReactPlayer url={videoUrl} width="100%" />
+              <ReactPlayer url={videoUrl} controls width="100%" />
 
               <VideoTitle color={themeColor}>{title}</VideoTitle>
               <ViewsAndControllersContainer>
@@ -154,17 +159,14 @@ export default class VideoItemDetails extends Component {
                   {publishedDate}
                 </ViewsAndDate>
                 <ControllersSection>
-                  <LikeButtonContainer liked={isLiked} onClick={this.likeVideo}>
-                    <BiLike size={20} />
-                    <ButtonText>Like</ButtonText>
+                  <LikeButtonContainer onClick={this.likeVideo}>
+                    <BiLike size={20} color={likeColor} />
+                    <ButtonText color={likeColor}>Like</ButtonText>
                   </LikeButtonContainer>
 
-                  <DisLikeButtonContainer
-                    disliked={isDisLiked}
-                    onClick={this.dislikeVideo}
-                  >
-                    <BiDislike size={20} />
-                    <ButtonText>Dislike</ButtonText>
+                  <DisLikeButtonContainer onClick={this.dislikeVideo}>
+                    <BiDislike size={20} color={disLikeColor} />
+                    <ButtonText color={disLikeColor}>Dislike</ButtonText>
                   </DisLikeButtonContainer>
 
                   <SavedButtonContainer saved={isSaved} onClick={saveVideo}>

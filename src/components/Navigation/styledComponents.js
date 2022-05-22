@@ -41,9 +41,10 @@ export const ContactContainer = styled.div`
   flex-direction: column;
   padding-left: 10px;
 `
-export const ContactHeading = styled.h1`
+export const ContactHeading = styled.p`
   font-size: 18px;
   color: ${props => props.color};
+  font-weight: bold;
 `
 
 export const SocialContainer = styled.div`
